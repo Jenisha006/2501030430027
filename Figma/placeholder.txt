@@ -1,1 +1,15 @@
+This folder contains screenshot exports of the Figma prototype design for the AI-based Recipe Generator website.
 
+Screens included (10 screens):
+1. Hero.png           → Home / Landing Page
+2. Signup.png         → Sign Up Page
+3. Login.png          → Login Page
+4. Ingredients.png    → Ingredient Input Page
+5. Recipe Results.png → Recipe Results Page
+6. Recipe Detail.png  → Recipe Detail Page
+7. Saved Recipes.png  → Saved Recipes Page
+8. About Us.png       → About & Contact Page
+9. AI Generating.png  → AI Loading / Generating Screen
+
+Tool used: Figma (figma.com)
+All screens are exported as PNG files showing the complete UI design and navigation flow of the website.
