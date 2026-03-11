@@ -1,1 +1,19 @@
+This folder contains the source code for the AI-based Recipe Generator website.
 
+Files included:
+- index.html  → Main HTML structure (all 11 screens)
+- style.css   → All styling, colors, layout, animations
+- script.js   → JavaScript functions for navigation and interactivity
+
+Technologies used:
+- HTML5
+- CSS3
+- JavaScript (Vanilla JS)
+
+The website includes:
+- User authentication screens (Login & Sign Up)
+- Ingredient input with dynamic tag system
+- AI recipe generation loading screen
+- Recipe results with filter options
+- Detailed recipe view with ingredients and steps
+- Saved recipes and user profile pages
