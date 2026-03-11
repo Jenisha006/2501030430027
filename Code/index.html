@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RecipeAI – Your Smart Kitchen Companion</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- TOAST -->
+<div class="toast" id="toast">✓ Saved!</div>
+
+<!-- ========== SCREEN 1: HOME ========== -->
+<div class="screen active" id="screen-home">
+  <nav>
+    <div class="logo" onclick="show('home')">Recipe<span>AI</span></div>
+    <ul class="nav-links">
+      <li><a onclick="show('home')">Home</a></li>
+      <li><a onclick="show('results')">Recipes</a></li>
+      <li><a onclick="show('about')">About</a></li>
+    </ul>
+    <div class="nav-btns">
+      <button class="btn btn-outline" onclick="show('login')">Login</button>
+      <button class="btn btn-primary" onclick="show('signup')">Sign Up</button>
+    </div>
+  </nav>
+  <div class="hero">
+    <div class="hero-text">
+      <div class="hero-badge">🤖 AI-Powered Cooking</div>
+      <h1>Cook Smarter,<br>Not <em>Harder</em></h1>
+      <p>Tell us what's in your fridge. We'll suggest delicious recipes tailored to your taste, diet, and available ingredients — powered by AI.</p>
+      <div class="hero-btns">
+        <button class="btn btn-primary btn-lg" onclick="show('signup')">Get Started Free</button>
+        <button class="btn btn-outline btn-lg" onclick="show('results')">Browse Recipes</button>
+      </div>
+    </div>
+    <div class="hero-image">
+      <div class="big-emoji">🍳</div>
+      <div class="floating-cards">
+        <div class="fcard c1">✅ Vegan Friendly</div>
+        <div class="fcard c2">⚡ Ready in 20 mins</div>
+        <div class="fcard c3">🌟 1000+ Recipes</div>
+      </div>
+    </div>
+  </div>
+  <div class="features">
+    <div class="feat-card">
+      <div class="feat-icon">🥕</div>
+      <h3>Ingredient-Based</h3>
+      <p>Add whatever you have in your kitchen and get instant recipe matches.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">🧠</div>
+      <h3>AI Personalized</h3>
+      <p>Recipes adapt to your dietary restrictions, allergies, and taste preferences.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">⏱️</div>
+      <h3>Quick & Easy</h3>
+      <p>Filter by cooking time, difficulty, and cuisine to find your perfect match.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">❤️</div>
+      <h3>Save Favourites</h3>
+      <p>Bookmark recipes you love and build your personal cookbook over time.</p>
+    </div>
+  </div>
+  <footer>Made with ❤️ by <span>RecipeAI</span> — Web Technology Assignment 2025-26</footer>
+</div>
+
+<!-- ========== SCREEN 2: SIGN UP ========== -->
+<div class="screen" id="screen-signup">
+  <nav>
+    <div class="logo" onclick="show('home')">Recipe<span>AI</span></div>
+    <ul class="nav-links"></ul>
+    <div class="nav-btns"><button class="btn btn-outline" onclick="show('login')">Login Instead</button></div>
+  </nav>
+  <div class="auth-screen">
+    <div class="auth-box">
+      <h2>Create Account 🍽️</h2>
+      <p class="sub">Join thousands of home cooks using AI</p>
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" placeholder="e.g. Jenisha Varde">
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" placeholder="you@example.com">
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" placeholder="Create a strong password">
+      </div>
+      <div class="form-group">
+        <label>Confirm Password</label>
+        <input type="password" placeholder="Repeat your password">
+      </div>
+      <button class="form-submit" onclick="show('preferences')">Create Account →</button>
+      <p class="auth-switch">Already have an account? <a onclick="show('login')">Login here</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- ========== SCREEN 3: LOGIN ========== -->
+<div class="screen" id="screen-login">
+  <nav>
+    <div class="logo" onclick="show('home')">Recipe<span>AI</span></div>
+    <ul class="nav-links"></ul>
+    <div class="nav-btns"><button class="btn btn-primary" onclick="show('signup')">Sign Up Free</button></div>
+  </nav>
+  <div class="auth-screen">
+    <div class="auth-box">
+      <h2>Welcome Back 👋</h2>
+      <p class="sub">Log in to access your saved recipes</p>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" placeholder="you@example.com">
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" placeholder="Your password">
+      </div>
+      <button class="form-submit" onclick="show('ingredients')">Login →</button>
+      <div class="divider"><hr><span>or</span><hr></div>
+      <button class="form-submit" style="background:var(--green)" onclick="show('ingredients')">Continue with Google 🔍</button>
+      <p class="auth-switch">Don't have an account? <a onclick="show('signup')">Sign up free</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- ========== SCREEN 4: PREFERENCES ========== -->
+<div class="screen" id="screen-preferences">
+  <nav>
+    <div class="logo" onclick="show('home')">Recipe<span>AI</span></div>
+    <ul class="nav-links"></ul>
+    <div class="nav-btns"><button class="btn btn-primary" onclick="show('ingredients')">Save & Continue →</button></div>
+  </nav>
+  <div style="flex:1; padding: 60px; max-width: 800px; margin: 0 auto; width:100%">
+    <h2 class="section-title">Set Your Preferences 🥗</h2>
+    <p class="section-sub">Help us suggest recipes that work for you</p>
+
+    <div class="pref-section">
+      <h3>Diet Type</h3>
+      <div class="chip-group">
+        <div class="chip selected" onclick="toggleChip(this)">🥩 Non-Vegetarian</div>
+        <div class="chip" onclick="toggleChip(this)">🥦 Vegetarian</div>
+        <div class="chip" onclick="toggleChip(this)">🌱 Vegan</div>
+        <div class="chip" onclick="toggleChip(this)">🐟 Pescatarian</div>
+        <div class="chip" onclick="toggleChip(this)">🥚 Eggetarian</div>
+      </div>
+    </div>
+
+    <div class="pref-section">
+      <h3>Allergies / Avoid</h3>
+      <div class="chip-group">
+        <div class="chip" onclick="toggleChip(this)">🥜 Peanuts</div>
+        <div class="chip" onclick="toggleChip(this)">🌾 Gluten</div>
+        <div class="chip" onclick="toggleChip(this)">🥛 Dairy</div>
+        <div class="chip" onclick="toggleChip(this)">🦐 Shellfish</div>
+        <div class="chip" onclick="toggleChip(this)">🥚 Eggs</div>
+        <div class="chip" onclick="toggleChip(this)">🌰 Tree Nuts</div>
+      </div>
+    </div>
+
+    <div class="pref-section">
+      <h3>Cuisine Preferences</h3>
+      <div class="chip-group">
+        <div class="chip selected" onclick="toggleChip(this)">🇮🇳 Indian</div>
+        <div class="chip" onclick="toggleChip(this)">🇮🇹 Italian</div>
+        <div class="chip" onclick="toggleChip(this)">🇨🇳 Chinese</div>
+        <div class="chip" onclick="toggleChip(this)">🇲🇽 Mexican</div>
+        <div class="chip" onclick="toggleChip(this)">🇯🇵 Japanese</div>
+        <div class="chip" onclick="toggleChip(this)">🇹🇭 Thai</div>
+        <div class="chip" onclick="toggleChip(this)">🌍 Mediterranean</div>
+      </div>
+    </div>
+
+    <div class="pref-section">
+      <h3>Max Cooking Time</h3>
+      <div class="chip-group">
+        <div class="chip" onclick="toggleChip(this)">⚡ Under 15 min</div>
+        <div class="chip selected" onclick="toggleChip(this)">🕐 Under 30 min</div>
+        <div class="chip" onclick="toggleChip(this)">🕑 Under 1 hour</div>
+        <div class="chip" onclick="toggleChip(this)">🍲 Any time</div>
+      </div>
+    </div>
+
+    <button class="btn btn-primary btn-lg" onclick="show('ingredients')" style="margin-top:16px">Save Preferences & Continue →</button>
+  </div>
+</div>
+
+<!-- ========== SCREEN 5: INGREDIENT INPUT ========== -->
+<div class="screen" id="screen-ingredients">
+  <nav>
+    <div class="logo" onclick="show('home')">Recipe<span>AI</span></div>
+    <ul class="nav-links">
+      <li><a onclick="show('results')">Recipes</a></li>
+      <li><a onclick="show('saved')">Saved</a></li>
+      <li><a onclick="show('profile')">Profile</a></li>
+    </ul>
+    <div class="nav-btns"><button class="btn btn-primary" onclick="generateRecipes()">🔍 Find Recipes</button></div>
+  </nav>
+  <div style="flex:1; padding: 60px; max-width: 800px; margin: 0 auto; width:100%">
+    <h2 class="section-title">What's in your kitchen? 🧅</h2>
+    <p class="section-sub">Add ingredients you have and we'll find the best recipes for you</p>
+
+    <div class="search-bar">
+      <input type="text" placeholder="Type an ingredient (e.g. tomato, rice...)" id="ingr-input" onkeypress="if(event.key==='Enter') addIngredient()">
+      <button onclick="addIngredient()">Add</button>
+    </div>
+
+    <div class="tags-area" id="tags-area">
+      <div class="tag">🧅 Onion <span class="remove" onclick="removeTag(this)">×</span></div>
+      <div class="tag">🍅 Tomato <span class="remove" onclick="removeTag(this)">×</span></div>
+      <div class="tag">🧄 Garlic <span class="remove" onclick="removeTag(this)">×</span></div>
+    </div>
+
+    <div class="quick-add">
+      <h4>Quick add common ingredients:</h4>
+      <div class="chip-group">
+        <div class="chip" onclick="quickAdd(this, '🧈 Butter')">🧈 Butter</div>
+        <div class="chip" onclick="quickAdd(this, '🥚 Eggs')">🥚 Eggs</div>
+        <div class="chip" onclick="quickAdd(this, '🧀 Cheese')">🧀 Cheese</div>
+        <div class="chip" onclick="quickAdd(this, '🍋 Lemon')">🍋 Lemon</div>
+        <div class="chip" onclick="quickAdd(this, '🌶️ Chili')">🌶️ Chili</div>
+        <div class="chip" onclick="quickAdd(this, '🫚 Oil')">🫚 Oil</div>
+        <div class="chip" onclick="quickAdd(this, '🌿 Coriander')">🌿 Coriander</div>
+        <div class="chip" onclick="quickAdd(this, '🍚 Rice')">🍚 Rice</div>
+      </div>
+    </div>
+
+    <button class="btn btn-primary btn-lg" onclick="generateRecipes()">✨ Generate Recipes with AI</button>
+  </div>
+</div>
+
+<!-- ========== SCREEN 11: GENERATING (AI) ========== -->
+<div class="screen" id="screen-generating">
+  <nav>
+    <div class="logo" onclick="show('home')">Recipe<span>AI</span></div>
+  </nav>
+  <div class="generate-screen">
+    <div class="big">🍳</div>
+    <h2>AI is cooking up recipes...</h2>
+    <p>Finding the best matches based on your ingredients & preferences</p>
+    <div class="progress-bar"><div class="progress-fill" id="prog"></div></div>
+  </div>
+</div>
+
+<!-- ========== SCREEN 6: RECIPE RESULTS ========== -->
+<div class="screen" id="screen-results">
+  <nav>
+    <div class="logo" onclick="show('home')">Recipe<span>AI</span></div>
+    <ul class="nav-links">
+      <li><a onclick="show('ingredients')">My Ingredients</a></li>
+      <li><a onclick="show('saved')">Saved</a></li>
+      <li><a onclick="show('profile')">Profile</a></li>
+    </ul>
+    <div class="nav-btns"><button class="btn btn-primary" onclick="show('ingredients')">+ New Search</button></div>
+  </nav>
+  <div class="results-screen">
+    <h2 class="section-title">🍽️ Recipes for You</h2>
+    <p class="section-sub">Based on your ingredients: Onion, Tomato, Garlic...</p>
+    <div class="filter-bar">
+      <button class="filter-btn active">All</button>
+      <button class="filter-btn" onclick="toggleFilter(this)">⚡ Quick (≤30 min)</button>
+      <button class="filter-btn" onclick="toggleFilter(this)">🌱 Vegan</button>
+      <button class="filter-btn" onclick="toggleFilter(this)">🇮🇳 Indian</button>
+      <button class="filter-btn" onclick="toggleFilter(this)">🇮🇹 Italian</button>
+    </div>
+    <div class="recipe-grid">
+      <div class="recipe-card" onclick="show('detail')">
+        <div class="recipe-img" style="background:#FFF3E0">🍛</div>
+        <div class="recipe-info">
+          <button class="bookmark-btn" onclick="event.stopPropagation();saveToast()">🤍</button>
+          <h3>Tomato Dal Tadka</h3>
+          <div class="recipe-meta">
+            <span>⏱️ 25 min</span><span>👤 2 servings</span><span>⭐ 4.8</span>
+          </div>
+          <div class="recipe-tags">
+            <span class="rtag">Indian</span><span class="rtag">Vegan</span><span class="rtag">Easy</span>
+          </div>
+        </div>
+      </div>
+      <div class="recipe-card" onclick="show('detail')">
+        <div class="recipe-img" style="background:#FFF8E1">🍝</div>
+        <div class="recipe-info">
+          <button class="bookmark-btn" onclick="event.stopPropagation();saveToast()">🤍</button>
+          <h3>Spaghetti Arrabiata</h3>
+          <div class="recipe-meta">
+            <span>⏱️ 20 min</span><span>👤 2 servings</span><span>⭐ 4.6</span>
+          </div>
+          <div class="recipe-tags">
+            <span class="rtag">Italian</span><span class="rtag">Spicy</span>
+          </div>
+        </div>
+      </div>
+      <div class="recipe-card" onclick="show('detail')">
+        <div class="recipe-img" style="background:#E8F5E9">🥘</div>
+        <div class="recipe-info">
+          <button class="bookmark-btn" onclick="event.stopPropagation();saveToast()">🤍</button>
+          <h3>Garlic Tomato Soup</h3>
+          <div class="recipe-meta">
+            <span>⏱️ 15 min</span><span>👤 4 servings</span><span>⭐ 4.5</span>
+          </div>
+          <div class="recipe-tags">
+            <span class="rtag">Vegan</span><span class="rtag">Quick</span>
+          </div>
+        </div>
+      </div>
+      <div class="recipe-card" onclick="show('detail')">
+        <div class="recipe-img" style="background:#FDE8E8">🫔</div>
+        <div class="recipe-info">
+          <button class="bookmark-btn" onclick="event.stopPropagation();saveToast()">🤍</button>
+          <h3>Masala Roti Roll</h3>
+          <div class="recipe-meta">
+            <span>⏱️ 30 min</span><span>👤 2 servings</span><span>⭐ 4.7</span>
+          </div>
+          <div class="recipe-tags">
+            <span class="rtag">Indian</span><span class="rtag">Vegetarian</span>
+          </div>
+        </div>
+      </div>
+      <div class="recipe-card" onclick="show('detail')">
+        <div class="recipe-img" style="background:#E3F2FD">🍲</div>
+        <div class="recipe-info">
+          <button class="bookmark-btn" onclick="event.stopPropagation();saveToast()">🤍</button>
+          <h3>Onion Tomato Sabzi</h3>
+          <div class="recipe-meta">
+            <span>⏱️ 20 min</span><span>👤 3 servings</span><span>⭐ 4.4</span>
+          </div>
+          <div class="recipe-tags">
+            <span class="rtag">Indian</span><span class="rtag">Vegan</span>
+          </div>
+        </div>
+      </div>
+      <div class="recipe-card" onclick="show('detail')">
+        <div class="recipe-img" style="background:#F3E5F5">🧄</div>
+        <div class="recipe-info">
+          <button class="bookmark-btn" onclick="event.stopPropagation();saveToast()">🤍</button>
+          <h3>Garlic Bread with Sauce</h3>
+          <div class="recipe-meta">
+            <span>⏱️ 12 min</span><span>👤 2 servings</span><span>⭐ 4.9</span>
+          </div>
+          <div class="recipe-tags">
+            <span class="rtag">Italian</span><span class="rtag">Quick</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== SCREEN 7: RECIPE DETAIL ========== -->
+<div class="screen" id="screen-detail">
+  <nav>
+    <div class="logo" onclick="show('home')">Recipe<span>AI</span></div>
+    <ul class="nav-links">
+      <li><a onclick="show('results')">← Back to Results</a></li>
+    </ul>
+    <div class="nav-btns"><button class="btn btn-outline" onclick="saveToast()">🤍 Save Recipe</button></div>
+  </nav>
+  <div class="detail-screen">
+    <div class="back-btn" onclick="show('results')">← Back to Recipes</div>
+    <div class="recipe-header">
+      <div class="emoji-big">🍛</div>
+      <div>
+        <h1>Tomato Dal Tadka</h1>
+        <p style="color:var(--gray); font-size:16px; line-height:1.6">A hearty, comforting Indian lentil dish tempered with aromatic spices, fresh tomatoes, and garlic. Perfect for a quick weeknight meal.</p>
+        <div class="stats-row">
+          <div class="stat"><div class="val">25</div><div class="lbl">Minutes</div></div>
+          <div class="stat"><div class="val">2</div><div class="lbl">Servings</div></div>
+          <div class="stat"><div class="val">320</div><div class="lbl">Calories</div></div>
+          <div class="stat"><div class="val">Easy</div><div class="lbl">Difficulty</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="detail-cols">
+      <div>
+        <h3>Ingredients</h3>
+        <ul class="ingr-list">
+          <li><span>Red Lentils</span><span>1 cup</span></li>
+          <li><span>Tomatoes</span><span>2 medium</span></li>
+          <li><span>Onion</span><span>1 large</span></li>
+          <li><span>Garlic</span><span>4 cloves</span></li>
+          <li><span>Cumin seeds</span><span>1 tsp</span></li>
+          <li><span>Turmeric</span><span>½ tsp</span></li>
+          <li><span>Red chili powder</span><span>1 tsp</span></li>
+          <li><span>Oil</span><span>2 tbsp</span></li>
+          <li><span>Salt</span><span>To taste</span></li>
+          <li><span>Fresh coriander</span><span>For garnish</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Instructions</h3>
+        <ol class="steps-list">
+          <li><p>Wash and boil red lentils in 2 cups of water with turmeric and salt until soft (about 15 minutes).</p></li>
+          <li><p>Heat oil in a pan. Add cumin seeds and let them splutter for 30 seconds.</p></li>
+          <li><p>Add chopped onions and sauté until golden brown, about 5 minutes.</p></li>
+          <li><p>Add minced garlic and cook for 1 minute until fragrant.</p></li>
+          <li><p>Add chopped tomatoes, red chili powder, and cook until tomatoes soften (4-5 min).</p></li>
+          <li><p>Pour the cooked lentils into the pan and mix well. Simmer for 5 minutes.</p></li>
+          <li><p>Garnish with fresh coriander and serve hot with rice or roti.</p></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== SCREEN 8: SAVED RECIPES ========== -->
+<div class="screen" id="screen-saved">
+  <nav>
+    <div class="logo" onclick="show('home')">Recipe<span>AI</span></div>
+    <ul class="nav-links">
+      <li><a onclick="show('results')">Browse Recipes</a></li>
+      <li><a onclick="show('profile')">Profile</a></li>
+    </ul>
+  </nav>
+  <div class="results-screen">
+    <h2 class="section-title">❤️ Saved Recipes</h2>
+    <p class="section-sub">Your personal cookbook — 3 recipes saved</p>
+    <div class="recipe-grid">
+      <div class="recipe-card" onclick="show('detail')">
+        <div class="recipe-img" style="background:#FFF3E0">🍛</div>
+        <div class="recipe-info">
+          <button class="bookmark-btn" onclick="event.stopPropagation()">❤️</button>
+          <h3>Tomato Dal Tadka</h3>
+          <div class="recipe-meta"><span>⏱️ 25 min</span><span>⭐ 4.8</span></div>
+          <div class="recipe-tags"><span class="rtag">Indian</span><span class="rtag">Vegan</span></div>
+        </div>
+      </div>
+      <div class="recipe-card" onclick="show('detail')">
+        <div class="recipe-img" style="background:#FFF8E1">🍝</div>
+        <div class="recipe-info">
+          <button class="bookmark-btn" onclick="event.stopPropagation()">❤️</button>
+          <h3>Spaghetti Arrabiata</h3>
+          <div class="recipe-meta"><span>⏱️ 20 min</span><span>⭐ 4.6</span></div>
+          <div class="recipe-tags"><span class="rtag">Italian</span></div>
+        </div>
+      </div>
+      <div class="recipe-card" onclick="show('detail')">
+        <div class="recipe-img" style="background:#F3E5F5">🧄</div>
+        <div class="recipe-info">
+          <button class="bookmark-btn" onclick="event.stopPropagation()">❤️</button>
+          <h3>Garlic Bread with Sauce</h3>
+          <div class="recipe-meta"><span>⏱️ 12 min</span><span>⭐ 4.9</span></div>
+          <div class="recipe-tags"><span class="rtag">Italian</span><span class="rtag">Quick</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== SCREEN 9: PROFILE ========== -->
+<div class="screen" id="screen-profile">
+  <nav>
+    <div class="logo" onclick="show('home')">Recipe<span>AI</span></div>
+    <ul class="nav-links">
+      <li><a onclick="show('results')">Recipes</a></li>
+      <li><a onclick="show('saved')">Saved</a></li>
+    </ul>
+    <div class="nav-btns"><button class="btn btn-outline" onclick="show('home')">Logout</button></div>
+  </nav>
+  <div class="profile-screen">
+    <div class="profile-header">
+      <div class="avatar">👩</div>
+      <div>
+        <h2>Jenisha Varde</h2>
+        <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1278777c7b617a7352776a737f627e773c717d7f">[email&#160;protected]</a></p>
+        <p style="margin-top:6px; font-size:13px; color:var(--green); font-weight:600">✅ Preferences: Vegetarian · Indian · Under 30 min</p>
+      </div>
+      <button class="btn btn-outline" style="margin-left:auto" onclick="show('preferences')">Edit Preferences</button>
+    </div>
+    <div class="stats-cards">
+      <div class="stat-card"><div class="num">23</div><div class="label">Recipes Tried</div></div>
+      <div class="stat-card"><div class="num">3</div><div class="label">Saved Recipes</div></div>
+      <div class="stat-card"><div class="num">7</div><div class="label">Days Streak 🔥</div></div>
+    </div>
+    <div style="background:white; padding:32px; border-radius:20px; box-shadow:0 4px 20px rgba(0,0,0,0.05)">
+      <h3 class="section-title" style="font-size:24px; margin-bottom:20px">Edit Profile</h3>
+      <div class="form-group"><label>Full Name</label><input type="text" value="Jenisha Varde"></div>
+      <div class="form-group"><label>Email</label><input type="email" value="jenisha@example.com"></div>
+      <div class="form-group"><label>Bio</label><textarea style="height:80px; resize:none">Home cook who loves Indian and Italian cuisine!</textarea></div>
+      <button class="btn btn-primary">Save Changes</button>
+    </div>
+  </div>
+</div>
+
+<!-- ========== SCREEN 10: ABOUT / CONTACT ========== -->
+<div class="screen" id="screen-about">
+  <nav>
+    <div class="logo" onclick="show('home')">Recipe<span>AI</span></div>
+    <ul class="nav-links">
+      <li><a onclick="show('home')">Home</a></li>
+      <li><a onclick="show('results')">Recipes</a></li>
+    </ul>
+    <div class="nav-btns"><button class="btn btn-primary" onclick="show('signup')">Get Started</button></div>
+  </nav>
+  <div class="about-screen">
+    <div class="about-hero">
+      <h1>About RecipeAI 🍳</h1>
+      <p>We believe everyone deserves to cook delicious meals, regardless of their cooking experience or what's in their fridge.</p>
+    </div>
+    <div class="about-content">
+      <div>
+        <h2>Our Mission</h2>
+        <p style="margin-bottom:16px">RecipeAI uses artificial intelligence to analyze your available ingredients and personal dietary preferences to suggest the most suitable recipes — reducing food waste and making cooking fun.</p>
+        <p>Built as a Web Technology project at Silver Oak University, this platform demonstrates the power of combining modern UI/UX design with practical web development using HTML, CSS, JavaScript, jQuery, and Bootstrap.</p>
+        <div style="display:flex; gap:16px; margin-top:24px">
+          <div style="text-align:center; background:var(--light-gray); padding:20px 28px; border-radius:16px">
+            <div style="font-family:'Playfair Display',serif; font-size:32px; color:var(--orange)">1000+</div>
+            <div style="font-size:13px; color:var(--gray)">Recipes</div>
+          </div>
+          <div style="text-align:center; background:var(--light-gray); padding:20px 28px; border-radius:16px">
+            <div style="font-family:'Playfair Display',serif; font-size:32px; color:var(--green)">500+</div>
+            <div style="font-size:13px; color:var(--gray)">Happy Users</div>
+          </div>
+          <div style="text-align:center; background:var(--light-gray); padding:20px 28px; border-radius:16px">
+            <div style="font-family:'Playfair Display',serif; font-size:32px; color:var(--gold)">50+</div>
+            <div style="font-size:13px; color:var(--gray)">Cuisines</div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form">
+        <h3>Contact Us 📩</h3>
+        <div class="form-group"><label>Your Name</label><input type="text" placeholder="Full name"></div>
+        <div class="form-group"><label>Email</label><input type="email" placeholder="your@email.com"></div>
+        <div class="form-group"><label>Message</label><textarea style="height:100px; resize:none; width:100%; padding:14px 16px; border:2px solid #E8E0D8; border-radius:12px; font-family:'DM Sans',sans-serif; font-size:15px; outline:none; background:var(--cream)" placeholder="Write your message..."></textarea></div>
+        <button class="form-submit" onclick="saveToast()">Send Message →</button>
+      </div>
+    </div>
+  </div>
+  <footer>Made with ❤️ by <span>RecipeAI</span> — Web Technology Assignment 2025-26</footer>
+</div>
+
+
+
+<script src="script.js"></script>
+</body>
+</html>
